@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import { View, Text, Image, TouchableOpacity, Linking } from 'react-native';
-import { Col, Row, Grid } from "react-native-easy-grid";
+import { Col, Row, Grid } from 'react-native-easy-grid';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { ButtonIcon, Link } from '../../components';
 import GlobalStyles from '../../constants/GlobalStyles';
 
 export default class CustomerProfile extends Component {
-	
-	callCustomerCare (url) {
-		Linking.canOpenURL(url).then(supported => {
-        if (supported) {
-            Linking.openURL(url);
-        } else {
-            console.log('Don\'t know how to open URI: ' + url);
-        }
-        });
-	}
+	callCustomerCare = (url) => {
+		Linking.canOpenURL(url).then((supported) => {
+			if (supported) {
+				Linking.openURL(url);
+			} else {
+				console.log("Don't know how to open URI: " + url);
+			}
+		});
+	};
 
 	render() {
 		return (
@@ -31,27 +30,38 @@ export default class CustomerProfile extends Component {
 				</View>
 				<View style={styles.viewConfirm}>
 					<View style={styles.addPhoto}>
-						<TouchableOpacity style={ styles.imageContainer }>
-								<Icon style={styles.image} name='ios-share-outline' size={30} color={Colors.BLUE} />
-								<Text style={GlobalStyles.text}>Add photo</Text>
-						</TouchableOpacity> 
+						<TouchableOpacity style={styles.imageContainer}>
+							<Icon
+								style={styles.image}
+								name="ios-share-outline"
+								size={30}
+								color={Colors.BLUE}
+							/>
+							<Text style={GlobalStyles.text}>Add photo</Text>
+						</TouchableOpacity>
 					</View>
 					<View style={styles.viewConfirmButtonIcon}>
 						<Grid>
-						    <Col>
-						    	<ButtonIcon icon="ios-home-outline">Home</ButtonIcon>
-						    </Col>
+							<Col>
+								<ButtonIcon icon="ios-home-outline">Home</ButtonIcon>
+							</Col>
 							<View style={styles.lineUp} />
-						    <Col>
-						    	<ButtonIcon icon="ios-list-box">History</ButtonIcon>
-						    </Col>
+							<Col>
+								<ButtonIcon icon="ios-list-box">History</ButtonIcon>
+							</Col>
 						</Grid>
 					</View>
 				</View>
 				<View style={styles.footer}>
-					<Text style={[GlobalStyles.text, styles.footerText]}>Questions? Click bellow.  <Icon name='ios-information-circle-outline' size={25} color='#007aff' /></Text>
-					<Link onPress={this.callCustomerCare.bind(this, 'tel:9876543210')}
-							style={styles.linkPhone}>1(800) 559-3630</Link>
+					<Text style={[GlobalStyles.text, styles.footerText]}>
+						Questions? Click bellow.{' '}
+						<Icon name="ios-information-circle-outline" size={25} color="#007aff" />
+					</Text>
+					<Link
+						onPress={this.callCustomerCare('tel:9876543210')}
+						style={styles.linkPhone}>
+						1(800) 559-3630
+					</Link>
 				</View>
 			</View>
 		);
@@ -63,32 +73,32 @@ const styles = {
 		flex: 1
 	},
 	headerLogo: {
-		flex: .4
-	}, 
+		flex: 0.4
+	},
 	viewContent: {
-		flex: .35, 
-		flexDirection: 'column', 
-		backgroundColor: '#ffffff', 
-		justifyContent: 'flex-start', 
-		alignItems: 'flex-start', 
+		flex: 0.35,
+		flexDirection: 'column',
+		backgroundColor: '#ffffff',
+		justifyContent: 'flex-start',
+		alignItems: 'flex-start',
 		marginLeft: 20,
 		marginTop: 30
 	},
 	viewConfirm: {
-		flex: .5, 
+		flex: 0.5,
 		backgroundColor: '#383b42'
 	},
 	viewConfirmText: {
-		flex: .2, 
-		flexDirection: 'row', 
-		justifyContent: 'space-around', 
+		flex: 0.2,
+		flexDirection: 'row',
+		justifyContent: 'space-around',
 		alignItems: 'center'
 	},
 	confirmText: {
 		color: '#95989a'
 	},
 	viewConfirmButtonIcon: {
-		flex: .8
+		flex: 0.8
 	},
 	buttonIconText: {
 		fontSize: 15
@@ -96,12 +106,12 @@ const styles = {
 	lineUp: {
 		backgroundColor: '#2d2e2e',
 		height: 100,
-    	width: 1,
-    	marginTop: 20,
-    	marginBottom: 10
+		width: 1,
+		marginTop: 20,
+		marginBottom: 10
 	},
 	footer: {
-		flex: .2,
+		flex: 0.2,
 		backgroundColor: Colors.BACKGROUND,
 		alignItems: 'center'
 	},
@@ -110,14 +120,14 @@ const styles = {
 		marginBottom: 10
 	},
 	linkPhone: {
-		fontSize: 18,
+		fontSize: 18
 	},
 	addPhoto: {
-		flex: .2,
+		flex: 0.2,
 		alignItems: 'center'
 	},
 	imageContainer: {
-		height:100,
+		height: 100,
 		width: 100,
 		borderRadius: 64,
 		marginTop: -50,
@@ -128,7 +138,5 @@ const styles = {
 		borderWidth: 1,
 		borderColor: Colors.TEXT
 	},
-	image: {
-		
-	},
+	image: {}
 };

@@ -1,4 +1,7 @@
 {
   "name": "LexorCustomerCare",
-  "displayName": "LexorCustomerCare"
+  "displayName": "LexorCustomerCare",
+  "expo": {
+    "sdkVersion": "25.0.0"
+  }
 }

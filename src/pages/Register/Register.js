@@ -4,68 +4,73 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import dismissKeyboard from 'react-native/Libraries/Utilities/dismissKeyboard';
 import { Actions } from 'react-native-router-flux';
-import { Col, Row, Grid } from "react-native-easy-grid";
+import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Button, BackButton } from '../../components';
 import GlobalStyles from '../../constants/GlobalStyles';
 import Colors from '../../constants/Colors';
 
 export default class Register extends Component {
-
-	onToggle (toggleState) {
+	onToggle = (toggleState) => {
 		this.props.setIsBack(toggleState);
-	}
+	};
 
-	renderBack () {
+	renderBack() {
 		if (!this.props.isBack) {
-			return (
-				<BackButton />
-			);
+			return <BackButton />;
 		}
 	}
 
-	onSend () {
+	onSend = () => {
 		dismissKeyboard();
 		Actions.customerInfo();
-	}
+	};
 
-	onRegisterMoreInfo () {
+	onRegisterMoreInfo = () => {
 		Actions.registerMoreInfo();
-	}
+	};
 
 	render() {
-
 		return (
-			<TouchableWithoutFeedback style={{flex:1}} onPress={dismissKeyboard}>
+			<TouchableWithoutFeedback style={{ flex: 1 }} onPress={dismissKeyboard}>
 				<View style={styles.container}>
-					<StatusBar
-					backgroundColor={Colors.BACKGROUND}
-					barStyle="light-content"
-					/>
+					<StatusBar backgroundColor={Colors.BACKGROUND} barStyle="light-content" />
 					<View style={styles.header}>
 						{this.renderBack()}
 						<View style={styles.headerTitle}>
-							<Text style={[GlobalStyles.text, styles.headerText]}>Registration </Text>
-							<TouchableWithoutFeedback onPress={this.onRegisterMoreInfo.bind(this)}>
-									<Icon name='ios-information-circle-outline' size={25} color='#007aff' />
+							<Text style={[GlobalStyles.text, styles.headerText]}>
+								Registration{' '}
+							</Text>
+							<TouchableWithoutFeedback onPress={this.onRegisterMoreInfo}>
+								<Icon
+									name="ios-information-circle-outline"
+									size={25}
+									color="#007aff"
+								/>
 							</TouchableWithoutFeedback>
 						</View>
 					</View>
 					<View style={styles.lineFlat} />
 					<View style={styles.content}>
-						<Text style={[GlobalStyles.text, styles.text]}>Enter the salon address in the search bar.</Text>
+						<Text style={[GlobalStyles.text, styles.text]}>
+							Enter the salon address in the search bar.
+						</Text>
 						<TextInput
 							style={styles.textInput}
 							placeholder={'Address'}
 							placeholderTextColor={Colors.TEXT}
 							selectionColor={Colors.TEXT}
 						/>
-						<Button buttonStyle={styles.buttonSend} onPress={this.onSend.bind(this)}>Send</Button>
+						<Button buttonStyle={styles.buttonSend} onPress={this.onSend}>
+							Send
+						</Button>
 					</View>
 					<View style={styles.footer}>
-						<Text style={[GlobalStyles.text, styles.footerText]}>Questions? Click bellow.</Text>
+						<Text style={[GlobalStyles.text, styles.footerText]}>
+							Questions? Click bellow.
+						</Text>
 						<Text style={styles.linkPhone}>1(800) 559-3630</Text>
 					</View>
-					<KeyboardSpacer onToggle={this.onToggle.bind(this)}/>
+					<KeyboardSpacer onToggle={this.onToggle} />
 				</View>
 			</TouchableWithoutFeedback>
 		);
@@ -75,19 +80,19 @@ export default class Register extends Component {
 const styles = {
 	container: {
 		flex: 1,
-		backgroundColor: Colors.BACKGROUND,
+		backgroundColor: Colors.BACKGROUND
 	},
 	header: {
-		flex: .15,
+		flex: 0.15,
 		backgroundColor: Colors.BACKGROUND,
-		flexDirection: 'column', 
-		justifyContent: 'flex-end', 
+		flexDirection: 'column',
+		justifyContent: 'flex-end',
 		alignItems: 'center'
 	},
 	headerTitle: {
 		flex: 1,
 		flexDirection: 'row',
-		justifyContent: 'flex-end', 
+		justifyContent: 'flex-end',
 		alignItems: 'center',
 		marginTop: 25
 	},
@@ -95,14 +100,14 @@ const styles = {
 		fontSize: 16
 	},
 	content: {
-		flex: .7,
+		flex: 0.7,
 		backgroundColor: Colors.BACKGROUND,
 		alignItems: 'center',
 		marginLeft: 20,
 		marginRight: 20
 	},
 	footer: {
-		flex: .15,
+		flex: 0.15,
 		backgroundColor: Colors.BACKGROUND,
 		alignItems: 'center',
 		marginLeft: 10,
@@ -116,14 +121,14 @@ const styles = {
 		fontSize: 16
 	},
 	textInput: {
-		height: 40, 
-		borderColor: Colors.TEXT, 
-		borderWidth: 1, 
-		borderRadius: 3, 
+		height: 40,
+		borderColor: Colors.TEXT,
+		borderWidth: 1,
+		borderRadius: 3,
 		marginTop: 10,
 		padding: 10,
 		fontSize: 16,
-		color: Colors.TEXT, 
+		color: Colors.TEXT
 	},
 	linkPhone: {
 		color: '#007aff',
@@ -133,13 +138,13 @@ const styles = {
 	lineFlat: {
 		backgroundColor: '#2d2e2e',
 		height: 1,
-    	width: null	,
-    	margin: 20,
-    	marginTop: 10,
+		width: null,
+		margin: 20,
+		marginTop: 10
 	},
 	buttonSend: {
-		width: 90, 
-		alignSelf: 'center', 
+		width: 90,
+		alignSelf: 'center',
 		marginTop: 20
 	}
 };

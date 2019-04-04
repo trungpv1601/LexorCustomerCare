@@ -8,7 +8,7 @@ import reducers from './reducers';
 import Router from './pages/Router';
 
 class App extends Component {
-	render () {
+	render() {
 		const logger = createLogger();
 		const store = createStore(reducers, {}, applyMiddleware(thunk, promise, logger));
 
@@ -21,3 +21,4 @@ class App extends Component {
 }
 
 export default App;
+
