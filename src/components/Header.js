@@ -21,7 +21,11 @@ export class Header extends Component {
 					/>
 				</View>
 				<View style={styles.viewBanner}>
-					<Image style={styles.viewBannerImage} source={sourceLogoHeader} />
+					<Image
+						style={styles.viewBannerImage}
+						resizeMode="contain"
+						source={sourceLogoHeader}
+					/>
 					<Text style={styles.viewBannerText}>{textBanner}</Text>
 				</View>
 			</View>
@@ -31,17 +35,13 @@ export class Header extends Component {
 
 const styles = {
 	headerStyle: {
-		flex: 1,
 		flexDirection: 'column',
 		backgroundColor: Colors.BACKGROUND,
 		justifyContent: 'center'
 	},
-	viewImageStyle: {
-		flex: 0.8
-	},
+	viewImageStyle: {},
 	imageStyle: {
-		flex: 1,
-		height: null,
+		height: 260,
 		width: null
 	},
 	viewBanner: {
@@ -51,21 +51,18 @@ const styles = {
 		marginLeft: 20,
 		marginRight: 20,
 		width: null,
-		height: null,
+		height: 170,
 		backgroundColor: '#ffffff',
-		borderRadius: 3,
-		flexDirection: 'column',
-		alignItems: 'center',
-		justifyContent: 'space-around'
+		borderRadius: 3
 	},
 	viewBannerImage: {
-		width: 170,
-		height: 50,
-		marginTop: 10,
-		marginBottom: 10
+		width: null,
+		height: 70,
+		marginTop: 20,
+		marginBottom: 20
 	},
 	viewBannerText: {
-		fontSize: 20,
+		fontSize: 22,
 		textAlign: 'center',
 		color: Colors.BACKGROUND,
 		marginBottom: 10

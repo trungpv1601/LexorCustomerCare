@@ -1,15 +1,118 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, ListView, Platform } from 'react-native';
-import ParallaxScrollView from 'react-native-parallax-scroll-view';
+import { ScrollView, FlatList, View, Text, Platform } from 'react-native';
 import { ButtonIcon, Header } from '../../components';
 
 export default class Home extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			dataSource: new ListView.DataSource({
-				rowHasChanged: (r1, r2) => r1 !== r2
-			}).cloneWithRows([])
+			data: [
+				{
+					case: '1000',
+					date: '01/01/2019',
+					status: true
+				},
+				{
+					case: '1001',
+					date: '01/01/2019',
+					status: true
+				},
+				{
+					case: '1002',
+					date: '01/01/2019',
+					status: true
+				},
+				{
+					case: '1003',
+					date: '01/01/2019',
+					status: true
+				},
+				{
+					case: '1004',
+					date: '01/01/2019',
+					status: true
+				},
+				{
+					case: '1005',
+					date: '01/01/2019',
+					status: true
+				},
+				{
+					case: '1006',
+					date: '01/01/2019',
+					status: true
+				},
+				{
+					case: '1007',
+					date: '01/01/2019',
+					status: true
+				},
+				{
+					case: '1008',
+					date: '01/01/2019',
+					status: true
+				},
+				{
+					case: '1009',
+					date: '01/01/2019',
+					status: true
+				},
+				{
+					case: '1010',
+					date: '01/01/2019',
+					status: true
+				},
+				{
+					case: '1011',
+					date: '01/01/2019',
+					status: true
+				},
+				{
+					case: '1012',
+					date: '01/01/2019',
+					status: true
+				},
+				{
+					case: '1013',
+					date: '01/01/2019',
+					status: true
+				},
+				{
+					case: '1014',
+					date: '01/01/2019',
+					status: true
+				},
+				{
+					case: '1015',
+					date: '01/01/2019',
+					status: true
+				},
+				{
+					case: '1016',
+					date: '01/01/2019',
+					status: true
+				},
+				{
+					case: '1017',
+					date: '01/01/2019',
+					status: true
+				},
+				{
+					case: '1018',
+					date: '01/01/2019',
+					status: true
+				},
+				{
+					case: '1019',
+					date: '01/01/2019',
+					status: true
+				},
+				{
+					case: '1020',
+					date: '01/01/2019',
+					status: true
+				}
+			]
 		};
 	}
 
@@ -32,166 +135,77 @@ export default class Home extends Component {
 	};
 
 	render() {
-		if (Platform.OS === 'android') {
-			return (
-				<ListView
-					ref="ListView"
-					contentContainerStyle={styles.container}
-					dataSource={this.state.dataSource}
-					enableEmptySections={true}
-					renderRow={(rowData) => (
-						<View key={rowData} style={styles.row}>
-							<Text style={styles.rowText}>{rowData}</Text>
-							<Text style={styles.rowText}>{rowData}</Text>
-							<Text style={styles.rowText}>{rowData}</Text>
-						</View>
-					)}
-					renderSectionHeader={this.renderSectionHeader}
-					renderScrollComponent={(props) => (
-						<ParallaxScrollView
-							backgroundColor="#383b42"
-							contentBackgroundColor="#383b42"
-							parallaxHeaderHeight={500}
-							contentContainerStyle={{ height: 600 }}
-							fadeOutForeground={false}
-							renderForeground={() => (
-								<View style={{ flex: 1 }}>
-									<Header
-										style={{ flex: 0.6 }}
-										sourceLogoHeader={require('../../images/lexor_logo_black.png')}
-										sourceBackgroundHeader={require('../../images/background_header_1.jpg')}
-										textBanner="Welcome to Lexor Customer Care"
-									/>
-									<View
-										style={{
-											flex: 0.4,
-											backgroundColor: '#383b42'
-										}}>
-										<View
-											style={{
-												flex: 0.8,
-												flexDirection: 'row',
-												alignItems: 'center',
-												justifyContent: 'space-around'
-											}}>
-											<ButtonIcon
-												icon="ios-person-add"
-												onPress={this.onButtonPressRegister}>
-												Register
-											</ButtonIcon>
-											<View style={styles.lineUp} />
-											<ButtonIcon
-												icon="ios-barcode"
-												onPress={this.onButtonPressScanSerialToRegister}>
-												Scan Serial to Register
-											</ButtonIcon>
-										</View>
-										<View style={styles.lineFlat} />
-										<View style={{ flex: 0.2 }}>
-											<Text
-												style={{
-													textAlign: 'center',
-													color: '#95989a',
-													fontSize: 18
-												}}>
-												Pending Cases
-											</Text>
-										</View>
-									</View>
-								</View>
-							)}
-						/>
-					)}
-				/>
-			);
-		}
-
-		//ios
 		return (
-			<ListView
-				ref="ListView"
-				contentContainerStyle={styles.container}
-				dataSource={this.state.dataSource}
-				enableEmptySections={true}
-				renderRow={(rowData) => (
-					<View key={rowData} style={styles.row}>
-						<Text style={styles.rowText}>{rowData}</Text>
-						<Text style={styles.rowText}>{rowData}</Text>
-						<Text style={styles.rowText}>{rowData}</Text>
+			<ScrollView backgroundColor="#383b42" contentContainerStyle={styles.container}>
+				<Header
+					style={{ flex: 0.5 }}
+					sourceLogoHeader={require('../../images/lexor_logo_black.png')}
+					sourceBackgroundHeader={require('../../images/background_header_1.jpg')}
+					textBanner="Welcome to Lexor Customer Care"
+				/>
+				<View
+					style={{
+						flex: 0.5,
+						backgroundColor: '#383b42'
+					}}>
+					<View
+						style={{
+							flex: 0.8,
+							flexDirection: 'row',
+							alignItems: 'center',
+							justifyContent: 'space-around'
+						}}>
+						<ButtonIcon icon="ios-person-add" onPress={this.onButtonPressRegister}>
+							Register
+						</ButtonIcon>
+						<View style={styles.lineUp} />
+						<ButtonIcon
+							icon="ios-barcode"
+							onPress={this.onButtonPressScanSerialToRegister}>
+							Scan Serial to Register
+						</ButtonIcon>
 					</View>
-				)}
-				renderSectionHeader={this.renderSectionHeader}
-				renderScrollComponent={(props) => (
-					<ParallaxScrollView
-						backgroundColor="#383b42"
-						contentBackgroundColor="#383b42"
-						parallaxHeaderHeight={500}
-						contentContainerStyle={{ height: 600 }}
-						fadeOutForeground={false}
-						renderForeground={() => (
-							<View style={{ flex: 1 }}>
-								<Header
-									style={{ flex: 0.6 }}
-									sourceLogoHeader={require('../../images/lexor_logo_black.png')}
-									sourceBackgroundHeader={require('../../images/background_header_1.jpg')}
-									textBanner="Welcome to Lexor Customer Care"
-								/>
-								<View
-									style={{
-										flex: 0.4,
-										backgroundColor: '#383b42'
-									}}>
-									<View
-										style={{
-											flex: 0.8,
-											flexDirection: 'row',
-											alignItems: 'center',
-											justifyContent: 'space-around'
-										}}>
-										<ButtonIcon
-											icon="ios-person-add"
-											onPress={this.onButtonPressRegister}>
-											Register
-										</ButtonIcon>
-										<View style={styles.lineUp} />
-										<ButtonIcon
-											icon="ios-barcode-outline"
-											onPress={this.onButtonPressScanSerialToRegister}>
-											Scan Serial to Register
-										</ButtonIcon>
-									</View>
-									<View style={styles.lineFlat} />
-									<View style={{ flex: 0.2 }}>
-										<Text
-											style={{
-												textAlign: 'center',
-												color: '#95989a',
-												fontSize: 18
-											}}>
-											Pending Cases
-										</Text>
-									</View>
-								</View>
+					<View style={styles.lineFlat} />
+					<View style={{ flex: 0.2 }}>
+						<Text
+							style={{
+								textAlign: 'center',
+								color: '#95989a',
+								fontSize: 18,
+								marginBottom: 20
+							}}>
+							Pending Cases
+						</Text>
+					</View>
+					<FlatList
+						data={this.state.data}
+						showsVerticalScrollIndicator={false}
+						renderItem={({ item }) => (
+							<View key={item} style={styles.row}>
+								<Text style={styles.rowText}>{item.case}</Text>
+								<Text style={styles.rowText}>{item.date}</Text>
+								<Text style={styles.rowText}>{item.status}</Text>
 							</View>
 						)}
+						keyExtractor={(item) => item.case}
+						ListHeaderComponent={this.renderSectionHeader}
 					/>
-				)}
-			/>
+				</View>
+			</ScrollView>
 		);
 	}
 }
 
 const styles = {
 	container: {
-		backgroundColor: '#383b42',
-		flexDirection: 'row',
-		flexWrap: 'wrap'
+		justifyContent: 'space-between',
+		backgroundColor: '#383b42'
 	},
 	row: {
-		backgroundColor: '#383b42',
 		flex: 1,
 		flexDirection: 'row',
-		justifyContent: 'space-between'
+		justifyContent: 'space-between',
+		marginBottom: 10
 	},
 	rowText: {
 		color: '#95989a',
@@ -202,7 +216,8 @@ const styles = {
 	sectionHeader: {
 		flex: 1,
 		flexDirection: 'row',
-		justifyContent: 'space-between'
+		justifyContent: 'space-between',
+		marginBottom: 10
 	},
 	sectionHeaderText: {
 		fontSize: 18,
