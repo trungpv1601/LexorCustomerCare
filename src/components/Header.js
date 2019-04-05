@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
-import { Text, View, Image, StatusBar } from 'react-native';
+import { Text, View, Image, StatusBar, Dimensions } from 'react-native';
 import Colors from '../constants/Colors';
+
+const { width } = Dimensions.get('window');
+
+getAdjustedFontSize = (size) => {
+	return (parseInt(size) * width * (1.8 - 0.002 * width)) / 400;
+};
 
 export class Header extends Component {
 	render() {
@@ -62,7 +68,7 @@ const styles = {
 		marginBottom: 20
 	},
 	viewBannerText: {
-		fontSize: 22,
+		fontSize: getAdjustedFontSize(22),
 		textAlign: 'center',
 		color: Colors.BACKGROUND,
 		marginBottom: 10
