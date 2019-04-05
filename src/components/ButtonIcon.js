@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Colors from '../constants/Colors';
+import GlobalStyles from '../constants/GlobalStyles';
 
 export class ButtonIcon extends Component {
     render() {
@@ -25,7 +26,7 @@ const styles = {
     textStyle: {
         textAlign: 'center',
         color: Colors.TEXT,
-        fontSize: 16
+        fontSize: GlobalStyles.getAdjustedFontSize(16)
     },
     buttonStyle: {
         flex: 1,

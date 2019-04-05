@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView, FlatList, View, Text, Platform } from 'react-native';
 import { ButtonIcon, Header } from '../../components';
+import GlobalStyles from '../../constants/GlobalStyles';
 
 export default class Home extends Component {
 	constructor(props) {
@@ -171,7 +172,7 @@ export default class Home extends Component {
 							style={{
 								textAlign: 'center',
 								color: '#95989a',
-								fontSize: 18,
+								fontSize: GlobalStyles.getAdjustedFontSize(18),
 								marginBottom: 20
 							}}>
 							Pending Cases
@@ -209,7 +210,7 @@ const styles = {
 	},
 	rowText: {
 		color: '#95989a',
-		fontSize: 18,
+		fontSize: GlobalStyles.getAdjustedFontSize(18),
 		paddingLeft: 10,
 		paddingRight: 10
 	},
@@ -220,7 +221,7 @@ const styles = {
 		marginBottom: 10
 	},
 	sectionHeaderText: {
-		fontSize: 18,
+		fontSize: GlobalStyles.getAdjustedFontSize(18),
 		color: '#ffffff',
 		paddingLeft: 10,
 		paddingRight: 10

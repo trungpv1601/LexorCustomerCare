@@ -115,7 +115,7 @@ const styles = {
 		flex: 0.8
 	},
 	buttonIconText: {
-		fontSize: 15
+		fontSize: GlobalStyles.getAdjustedFontSize(15)
 	},
 	lineUp: {
 		backgroundColor: Colors.BACKGROUND_LINE,
@@ -130,11 +130,11 @@ const styles = {
 		alignItems: 'center'
 	},
 	footerText: {
-		fontSize: 14,
+		fontSize: GlobalStyles.getAdjustedFontSize(14),
 		marginBottom: 10
 	},
 	linkPhone: {
-		fontSize: 18
+		fontSize: GlobalStyles.getAdjustedFontSize(18)
 	},
 	addPhoto: {
 		flex: 0.2,

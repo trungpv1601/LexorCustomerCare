@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import Colors from '../constants/Colors';
+import GlobalStyles from '../constants/GlobalStyles';
 
 export class Button extends Component {
     render() {
@@ -18,7 +19,7 @@ const styles = {
     textStyle: {
         alignSelf: 'center',
         color: Colors.TEXT,
-        fontSize: 15,
+        fontSize: GlobalStyles.getAdjustedFontSize(15),
         fontWeight: '600',
         paddingTop: 8,
         paddingBottom: 5

@@ -3,6 +3,7 @@ import { ScrollView, View, Text, FlatList } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Actions } from 'react-native-router-flux';
 import { ButtonIcon, Header } from '../../components';
+import GlobalStyles from '../../constants/GlobalStyles';
 
 export default class HomeWithProfile extends Component {
 	constructor(props) {
@@ -196,7 +197,7 @@ export default class HomeWithProfile extends Component {
 							style={{
 								textAlign: 'center',
 								color: '#95989a',
-								fontSize: 18
+								fontSize: GlobalStyles.getAdjustedFontSize(18)
 							}}>
 							Pending Cases
 						</Text>
@@ -233,7 +234,7 @@ const styles = {
 	},
 	rowText: {
 		color: '#95989a',
-		fontSize: 18,
+		fontSize: GlobalStyles.getAdjustedFontSize(18),
 		paddingLeft: 10,
 		paddingRight: 10
 	},
@@ -243,7 +244,7 @@ const styles = {
 		justifyContent: 'space-between'
 	},
 	sectionHeaderText: {
-		fontSize: 18,
+		fontSize: GlobalStyles.getAdjustedFontSize(18),
 		color: '#ffffff',
 		paddingLeft: 10,
 		paddingRight: 10

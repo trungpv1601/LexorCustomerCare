@@ -132,7 +132,7 @@ const styles = {
 	},
 	multiline: {
 		flex: 1,
-		fontSize: 16,
+		fontSize: GlobalStyles.getAdjustedFontSize(16),
 		padding: 4,
 		borderWidth: 1,
 		borderColor: Colors.TEXT,
@@ -159,7 +159,7 @@ const styles = {
 		color: '#fff',
 		fontWeight: 'bold',
 		alignSelf: 'center',
-		fontSize: 18,
+		fontSize: GlobalStyles.getAdjustedFontSize(18),
 		marginTop: 10
 	},
 	lineFlat: {

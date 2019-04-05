@@ -100,7 +100,7 @@ const styles = {
 		marginTop: 25
 	},
 	headerText: {
-		fontSize: 16,
+		fontSize: GlobalStyles.getAdjustedFontSize(16),
 		padding: 10
 	},
 	content: {
@@ -116,11 +116,11 @@ const styles = {
 		marginBottom: 36
 	},
 	footerText: {
-		fontSize: 14,
+		fontSize: GlobalStyles.getAdjustedFontSize(14),
 		marginBottom: 10
 	},
 	text: {
-		fontSize: 16
+		fontSize: GlobalStyles.getAdjustedFontSize(16)
 	},
 	textInput: {
 		maxWidth: '95%',
@@ -131,12 +131,12 @@ const styles = {
 		borderRadius: 3,
 		marginTop: 10,
 		padding: 10,
-		fontSize: 16,
+		fontSize: GlobalStyles.getAdjustedFontSize(16),
 		color: Colors.TEXT
 	},
 	linkPhone: {
 		color: Colors.LINK,
-		fontSize: 18,
+		fontSize: GlobalStyles.getAdjustedFontSize(18),
 		textDecorationLine: 'underline'
 	},
 	lineFlat: {

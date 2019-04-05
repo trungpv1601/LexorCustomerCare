@@ -72,8 +72,8 @@ const styles = {
 		flexDirection: 'column',
 		backgroundColor: '#ffffff',
 		justifyContent: 'center',
-		alignItems: 'flex-start',
-		marginLeft: 20
+		alignItems: 'flex-start'
+		// marginLeft: 20
 	},
 	viewConfirm: {
 		flex: 0.4,
@@ -101,15 +101,15 @@ const styles = {
 	},
 	linkPhone: {
 		color: Colors.LINK,
-		fontSize: 18,
+		fontSize: GlobalStyles.getAdjustedFontSize(18),
 		textDecorationLine: 'underline'
 	},
 	viewTollFree: {
-		flex: 0.2,
+		flex: 1,
 		flexDirection: 'column',
 		justifyContent: 'center',
-		alignItems: 'center',
-		marginTop: 40
+		alignItems: 'center'
+		// marginTop: 40
 	},
 	toolFreeText: {
 		marginBottom: 10
@@ -122,6 +122,6 @@ const styles = {
 		marginBottom: 10
 	},
 	buttonIconText: {
-		fontSize: 15
+		fontSize: GlobalStyles.getAdjustedFontSize(15)
 	}
 };

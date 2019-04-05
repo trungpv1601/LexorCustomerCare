@@ -68,7 +68,7 @@ const styles = {
 		alignItems: 'center'
 	},
 	headerText: {
-		fontSize: 16
+		fontSize: GlobalStyles.getAdjustedFontSize(16)
 	},
 	content: {
 		flex: 0.7,
@@ -85,11 +85,11 @@ const styles = {
 		marginRight: 10
 	},
 	footerText: {
-		fontSize: 14,
+		fontSize: GlobalStyles.getAdjustedFontSize(14),
 		marginBottom: 10
 	},
 	text: {
-		fontSize: 16,
+		fontSize: GlobalStyles.getAdjustedFontSize(16),
 		marginTop: 10
 	},
 	textInput: {
@@ -99,12 +99,12 @@ const styles = {
 		borderRadius: 3,
 		marginTop: 10,
 		padding: 10,
-		fontSize: 16,
+		fontSize: GlobalStyles.getAdjustedFontSize(16),
 		color: Colors.TEXT
 	},
 	linkPhone: {
 		color: Colors.LINK,
-		fontSize: 18,
+		fontSize: GlobalStyles.getAdjustedFontSize(18),
 		textDecorationLine: 'underline'
 	},
 	lineFlat: {

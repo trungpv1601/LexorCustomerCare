@@ -98,6 +98,6 @@ const styles = {
 		flex: 0.8
 	},
 	buttonIconText: {
-		fontSize: 15
+		fontSize: GlobalStyles.getAdjustedFontSize(15)
 	}
 };
