@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, StatusBar, TouchableWithoutFeedback } from 'react-native';
+import {
+	View,
+	Text,
+	TextInput,
+	StatusBar,
+	KeyboardAvoidingView,
+	TouchableWithoutFeedback
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import dismissKeyboard from 'react-native/Libraries/Utilities/dismissKeyboard';
@@ -31,26 +38,24 @@ export default class Register extends Component {
 
 	render() {
 		return (
-			<TouchableWithoutFeedback style={{ flex: 1 }} onPress={dismissKeyboard}>
+			<TouchableWithoutFeedback onPress={dismissKeyboard}>
 				<View style={styles.container}>
 					<StatusBar backgroundColor={Colors.BACKGROUND} barStyle="light-content" />
 					<View style={styles.header}>
 						{this.renderBack()}
 						<View style={styles.headerTitle}>
-							<Text style={[GlobalStyles.text, styles.headerText]}>
-								Registration{' '}
-							</Text>
+							<Text style={[GlobalStyles.text, styles.headerText]}>Registration</Text>
 							<TouchableWithoutFeedback onPress={this.onRegisterMoreInfo}>
 								<Icon
 									name="ios-information-circle-outline"
 									size={25}
-									color="#007aff"
+									color={Colors.LINK}
 								/>
 							</TouchableWithoutFeedback>
 						</View>
 					</View>
 					<View style={styles.lineFlat} />
-					<View style={styles.content}>
+					<KeyboardAvoidingView style={styles.content} behavior="padding" enabled>
 						<Text style={[GlobalStyles.text, styles.text]}>
 							Enter the salon address in the search bar.
 						</Text>
@@ -63,13 +68,13 @@ export default class Register extends Component {
 						<Button buttonStyle={styles.buttonSend} onPress={this.onSend}>
 							Send
 						</Button>
-					</View>
-					<View style={styles.footer}>
+					</KeyboardAvoidingView>
+					<KeyboardAvoidingView style={styles.footer} behavior="padding" enabled>
 						<Text style={[GlobalStyles.text, styles.footerText]}>
 							Questions? Click bellow.
 						</Text>
 						<Text style={styles.linkPhone}>1(800) 559-3630</Text>
-					</View>
+					</KeyboardAvoidingView>
 					<KeyboardSpacer onToggle={this.onToggle} />
 				</View>
 			</TouchableWithoutFeedback>
@@ -83,35 +88,32 @@ const styles = {
 		backgroundColor: Colors.BACKGROUND
 	},
 	header: {
-		flex: 0.15,
 		backgroundColor: Colors.BACKGROUND,
 		flexDirection: 'column',
 		justifyContent: 'flex-end',
 		alignItems: 'center'
 	},
 	headerTitle: {
-		flex: 1,
 		flexDirection: 'row',
 		justifyContent: 'flex-end',
 		alignItems: 'center',
 		marginTop: 25
 	},
 	headerText: {
-		fontSize: 16
+		fontSize: 16,
+		padding: 10
 	},
 	content: {
-		flex: 0.7,
+		flex: 1,
 		backgroundColor: Colors.BACKGROUND,
 		alignItems: 'center',
 		marginLeft: 20,
 		marginRight: 20
 	},
 	footer: {
-		flex: 0.15,
-		backgroundColor: Colors.BACKGROUND,
 		alignItems: 'center',
-		marginLeft: 10,
-		marginRight: 10
+		justifyContent: 'flex-end',
+		marginBottom: 36
 	},
 	footerText: {
 		fontSize: 14,
@@ -121,6 +123,8 @@ const styles = {
 		fontSize: 16
 	},
 	textInput: {
+		maxWidth: '95%',
+		minWidth: '95%',
 		height: 40,
 		borderColor: Colors.TEXT,
 		borderWidth: 1,
@@ -131,12 +135,12 @@ const styles = {
 		color: Colors.TEXT
 	},
 	linkPhone: {
-		color: '#007aff',
+		color: Colors.LINK,
 		fontSize: 18,
 		textDecorationLine: 'underline'
 	},
 	lineFlat: {
-		backgroundColor: '#2d2e2e',
+		backgroundColor: Colors.BACKGROUND_LINE,
 		height: 1,
 		width: null,
 		margin: 20,

@@ -7,6 +7,14 @@ import GlobalStyles from '../../constants/GlobalStyles';
 import Colors from '../../constants/Colors';
 
 export default class ProfileRegistered extends Component {
+	onButtonPressHome = () => {
+		this.props.homeWithProfile();
+	};
+
+	onButtonPressProfile = () => {
+		this.props.customerProfile();
+	};
+
 	render() {
 		return (
 			<View style={styles.container}>
@@ -24,11 +32,15 @@ export default class ProfileRegistered extends Component {
 					<Text style={[GlobalStyles.text, styles.text]}>View here</Text>
 					<Grid>
 						<Col style={{ height: 130 }}>
-							<ButtonIcon icon="ios-home-outline">Home</ButtonIcon>
+							<ButtonIcon icon="ios-home" onPress={this.onButtonPressHome}>
+								Home
+							</ButtonIcon>
 						</Col>
 						<View style={styles.lineUp} />
 						<Col style={{ height: 130 }}>
-							<ButtonIcon icon="md-person">Profile</ButtonIcon>
+							<ButtonIcon icon="md-person" onPress={this.onButtonPressProfile}>
+								Profile
+							</ButtonIcon>
 						</Col>
 					</Grid>
 				</View>
@@ -91,19 +103,19 @@ const styles = {
 		color: Colors.TEXT
 	},
 	linkPhone: {
-		color: '#007aff',
+		color: Colors.LINK,
 		fontSize: 18,
 		textDecorationLine: 'underline'
 	},
 	lineFlat: {
-		backgroundColor: '#2d2e2e',
+		backgroundColor: Colors.BACKGROUND_LINE,
 		height: 1,
 		width: null,
 		margin: 20,
 		marginTop: 10
 	},
 	lineUp: {
-		backgroundColor: '#2d2e2e',
+		backgroundColor: Colors.BACKGROUND_LINE,
 		height: 100,
 		width: 1,
 		marginTop: 20,

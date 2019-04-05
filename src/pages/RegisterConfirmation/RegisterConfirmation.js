@@ -22,7 +22,7 @@ export default class RegisterConfirmation extends Component {
 					</Text>
 					<Grid>
 						<Col style={{ height: 130 }}>
-							<ButtonIcon icon="ios-home-outline">Home</ButtonIcon>
+							<ButtonIcon icon="ios-home">Home</ButtonIcon>
 						</Col>
 					</Grid>
 				</View>
@@ -85,19 +85,19 @@ const styles = {
 		color: Colors.TEXT
 	},
 	linkPhone: {
-		color: '#007aff',
+		color: Colors.LINK,
 		fontSize: 18,
 		textDecorationLine: 'underline'
 	},
 	lineFlat: {
-		backgroundColor: '#2d2e2e',
+		backgroundColor: Colors.BACKGROUND_LINE,
 		height: 1,
 		width: null,
 		margin: 20,
 		marginTop: 10
 	},
 	lineUp: {
-		backgroundColor: '#2d2e2e',
+		backgroundColor: Colors.BACKGROUND_LINE,
 		height: 100,
 		width: 1,
 		marginTop: 20,

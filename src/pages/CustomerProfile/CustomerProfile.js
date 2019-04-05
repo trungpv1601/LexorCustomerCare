@@ -2,18 +2,27 @@ import React, { Component } from 'react';
 import { View, Text, Image, TouchableOpacity, Linking } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { Actions } from 'react-native-router-flux';
 import { ButtonIcon, Link } from '../../components';
 import GlobalStyles from '../../constants/GlobalStyles';
 
 export default class CustomerProfile extends Component {
 	callCustomerCare = (url) => {
-		Linking.canOpenURL(url).then((supported) => {
-			if (supported) {
-				Linking.openURL(url);
-			} else {
-				console.log("Don't know how to open URI: " + url);
-			}
-		});
+		// Linking.canOpenURL(url).then((supported) => {
+		// 	if (supported) {
+		// 		Linking.openURL(url);
+		// 	} else {
+		// 		console.log("Don't know how to open URI: " + url);
+		// 	}
+		// });
+	};
+
+	handlePressHome = () => {
+		Actions.homeWithProfile();
+	};
+
+	handlePressHistory = () => {
+		Actions.noHistory();
 	};
 
 	render() {
@@ -33,7 +42,7 @@ export default class CustomerProfile extends Component {
 						<TouchableOpacity style={styles.imageContainer}>
 							<Icon
 								style={styles.image}
-								name="ios-share-outline"
+								name="ios-share"
 								size={30}
 								color={Colors.BLUE}
 							/>
@@ -43,11 +52,15 @@ export default class CustomerProfile extends Component {
 					<View style={styles.viewConfirmButtonIcon}>
 						<Grid>
 							<Col>
-								<ButtonIcon icon="ios-home-outline">Home</ButtonIcon>
+								<ButtonIcon icon="ios-home" onPress={this.handlePressHome}>
+									Home
+								</ButtonIcon>
 							</Col>
 							<View style={styles.lineUp} />
 							<Col>
-								<ButtonIcon icon="ios-list-box">History</ButtonIcon>
+								<ButtonIcon icon="ios-list-box" onPress={this.handlePressHistory}>
+									History
+								</ButtonIcon>
 							</Col>
 						</Grid>
 					</View>
@@ -55,7 +68,7 @@ export default class CustomerProfile extends Component {
 				<View style={styles.footer}>
 					<Text style={[GlobalStyles.text, styles.footerText]}>
 						Questions? Click bellow.{' '}
-						<Icon name="ios-information-circle-outline" size={25} color="#007aff" />
+						<Icon name="ios-information-circle-outline" size={25} color={Colors.LINK} />
 					</Text>
 					<Link
 						onPress={this.callCustomerCare('tel:9876543210')}
@@ -70,7 +83,8 @@ export default class CustomerProfile extends Component {
 
 const styles = {
 	container: {
-		flex: 1
+		flex: 1,
+		backgroundColor: '#ffffff'
 	},
 	headerLogo: {
 		flex: 0.4
@@ -86,7 +100,7 @@ const styles = {
 	},
 	viewConfirm: {
 		flex: 0.5,
-		backgroundColor: '#383b42'
+		backgroundColor: Colors.BACKGROUND
 	},
 	viewConfirmText: {
 		flex: 0.2,
@@ -104,7 +118,7 @@ const styles = {
 		fontSize: 15
 	},
 	lineUp: {
-		backgroundColor: '#2d2e2e',
+		backgroundColor: Colors.BACKGROUND_LINE,
 		height: 100,
 		width: 1,
 		marginTop: 20,

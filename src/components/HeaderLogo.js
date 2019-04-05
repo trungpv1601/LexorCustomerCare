@@ -16,9 +16,9 @@ export class HeaderLogo extends Component {
 					<Image
 						resizeMode="cover"
 						style={styles.imageBackgroundStyle}
-						source={sourceBackgroundHeader}>
-						<Image style={styles.imageLogo} source={sourceLogoHeader} />
-					</Image>
+						source={sourceBackgroundHeader}
+					/>
+					<Image style={styles.imageLogo} source={sourceLogoHeader} />
 				</View>
 			</View>
 		);
@@ -41,6 +41,7 @@ const styles = {
 		width: null
 	},
 	imageLogo: {
+		position: 'absolute',
 		width: 170,
 		height: 50,
 		marginTop: 30,

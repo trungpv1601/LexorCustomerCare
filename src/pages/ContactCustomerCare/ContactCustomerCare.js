@@ -37,7 +37,7 @@ export default class ContactCustomerCare extends Component {
 						<Grid>
 							<Col>
 								<ButtonIcon
-									icon="ios-mail-outline"
+									icon="ios-mail"
 									textStyle={styles.buttonIconText}
 									style={{ marginTop: 0, marginBottom: 0 }}>
 									Message
@@ -77,7 +77,7 @@ const styles = {
 	},
 	viewConfirm: {
 		flex: 0.4,
-		backgroundColor: '#383b42'
+		backgroundColor: Colors.BACKGROUND
 	},
 	viewConfirmText: {
 		flex: 0.2,
@@ -100,7 +100,7 @@ const styles = {
 		marginRight: 10
 	},
 	linkPhone: {
-		color: '#007aff',
+		color: Colors.LINK,
 		fontSize: 18,
 		textDecorationLine: 'underline'
 	},
@@ -108,13 +108,14 @@ const styles = {
 		flex: 0.2,
 		flexDirection: 'column',
 		justifyContent: 'center',
-		alignItems: 'center'
+		alignItems: 'center',
+		marginTop: 40
 	},
 	toolFreeText: {
 		marginBottom: 10
 	},
 	lineUp: {
-		backgroundColor: '#2d2e2e',
+		backgroundColor: Colors.BACKGROUND_LINE,
 		height: 70,
 		width: 1,
 		marginTop: 20,

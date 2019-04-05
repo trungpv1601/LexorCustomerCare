@@ -101,12 +101,12 @@ const styles = {
 		color: Colors.TEXT
 	},
 	linkPhone: {
-		color: '#007aff',
+		color: Colors.LINK,
 		fontSize: 18,
 		textDecorationLine: 'underline'
 	},
 	lineFlat: {
-		backgroundColor: '#2d2e2e',
+		backgroundColor: Colors.BACKGROUND_LINE,
 		height: 1,
 		width: null,
 		margin: 20,

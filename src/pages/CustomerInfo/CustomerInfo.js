@@ -42,7 +42,7 @@ export default class CustomerInfo extends Component {
 							<Col>
 								<ButtonIcon
 									onPress={this.onCorrect}
-									icon="ios-checkmark-outline"
+									icon="ios-checkmark"
 									iconColor="#42db66"
 									textStyle={styles.buttonIconText}>
 									Correct
@@ -51,7 +51,7 @@ export default class CustomerInfo extends Component {
 							<Col>
 								<ButtonIcon
 									onPress={this.onInCorrect}
-									icon="ios-close-outline"
+									icon="ios-close"
 									iconColor="#ee284a"
 									textStyle={styles.buttonIconText}>
 									Incorrect
@@ -67,7 +67,8 @@ export default class CustomerInfo extends Component {
 
 const styles = {
 	container: {
-		flex: 1
+		flex: 1,
+		backgroundColor: '#ffffff'
 	},
 	headerLogo: {
 		flex: 0.4
@@ -82,7 +83,7 @@ const styles = {
 	},
 	viewConfirm: {
 		flex: 0.3,
-		backgroundColor: '#383b42'
+		backgroundColor: Colors.BACKGROUND
 	},
 	viewConfirmText: {
 		flex: 0.2,

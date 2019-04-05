@@ -6,7 +6,8 @@ import {
 	Image,
 	TouchableOpacity,
 	Linking,
-	TextInput
+	TextInput,
+	KeyboardAvoidingView
 } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -16,6 +17,13 @@ import { ButtonIcon, Link, Button } from '../../components';
 import GlobalStyles from '../../constants/GlobalStyles';
 
 export default class CustomerMessage extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			feedback: ''
+		};
+	}
+
 	callCustomerCare(url) {
 		Linking.canOpenURL(url).then((supported) => {
 			if (supported) {
@@ -29,8 +37,8 @@ export default class CustomerMessage extends Component {
 	render() {
 		return (
 			<TouchableWithoutFeedback style={{ flex: 1 }} onPress={dismissKeyboard}>
-				<View style={styles.container}>
-					<View style={styles.viewContent}>
+				<KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
+					<KeyboardAvoidingView style={styles.viewContent} behavior="padding" enabled>
 						<View style={styles.viewLogo}>
 							<Image
 								style={styles.imageLogo}
@@ -48,53 +56,45 @@ export default class CustomerMessage extends Component {
 							<Text style={GlobalStyles.text}>Mobile #: 714-564-9865</Text>
 							<Text style={GlobalStyles.text}>Email: ThanhN@PPNails.com</Text>
 						</View>
-					</View>
-					<View style={styles.viewConfirm}>
-						<View style={styles.viewConfirmButtonIcon}>
-							<View style={styles.viewMessage}>
-								<Text style={GlobalStyles.text}>
-									Describe a brief problem of your product.
-								</Text>
-								<Text style={GlobalStyles.text}>
-									Add photos & video for better understanding.
-								</Text>
-							</View>
-							<View style={styles.viewSendMessage}>
-								<View style={styles.viewSendMessageTitle}>
-									<Text style={[GlobalStyles.text, styles.textToCustomerCare]}>
-										To Customer Care
-									</Text>
-									<View style={styles.lineFlat} />
-								</View>
-								<View style={styles.viewSendMessageBody}>
-									<TextInput
-										multiline={true}
-										style={styles.multiline}
-										onChangeText={(text) => {
-											this.setState({ text });
-										}}
-									/>
-									<TouchableOpacity style={styles.touchAddPhotosVideo}>
-										<Icon name="ios-share-outline" size={25} color="#007aff" />
-										<Text
-											style={[GlobalStyles.text, styles.textAddPhotosVideo]}>
-											Add photos & video
-										</Text>
-									</TouchableOpacity>
-									<Grid style={styles.gridButton}>
-										<Col>
-											<Button>Cancel</Button>
-										</Col>
-										<Col>
-											<Button>Send</Button>
-										</Col>
-									</Grid>
-								</View>
-							</View>
-						</View>
-					</View>
+					</KeyboardAvoidingView>
+					<KeyboardAvoidingView style={styles.viewConfirm} behavior="padding" enabled>
+						<View style={styles.lineFlat} />
+						<Text style={GlobalStyles.text}>
+							Describe a brief problem of your product.
+						</Text>
+						<Text style={GlobalStyles.text}>
+							Add photos & video for better understanding.
+						</Text>
+						<Text style={[GlobalStyles.text, styles.textToCustomerCare]}>
+							To Customer Care
+						</Text>
+						<View style={styles.lineFlat} />
+						<TextInput
+							multiline={true}
+							style={styles.multiline}
+							numberOfLines={4}
+							onChangeText={(text) => {
+								this.setState({ feedback: text });
+							}}
+							value={this.state.feedback}
+						/>
+						<TouchableOpacity style={styles.touchAddPhotosVideo}>
+							<Icon name="ios-share" size={25} color={Colors.LINK} />
+							<Text style={[GlobalStyles.text, styles.textAddPhotosVideo]}>
+								Add photos & video
+							</Text>
+						</TouchableOpacity>
+						<Grid style={styles.gridButton}>
+							<Col>
+								<Button>Cancel</Button>
+							</Col>
+							<Col>
+								<Button>Send</Button>
+							</Col>
+						</Grid>
+					</KeyboardAvoidingView>
 					<KeyboardSpacer />
-				</View>
+				</KeyboardAvoidingView>
 			</TouchableWithoutFeedback>
 		);
 	}
@@ -102,47 +102,17 @@ export default class CustomerMessage extends Component {
 
 const styles = {
 	container: {
-		flex: 1
-	},
-	headerLogo: {
-		flex: 0.4
+		flex: 1,
+		backgroundColor: '#fff'
 	},
 	viewContent: {
 		flex: 0.35
+		// flex: 1
 	},
 	viewConfirm: {
 		flex: 0.65,
-		backgroundColor: '#383b42'
-	},
-	viewConfirmText: {
-		flex: 0.2,
-		flexDirection: 'row',
-		justifyContent: 'space-around',
-		alignItems: 'center'
-	},
-	viewMessage: {
-		flex: 0.1,
-		margin: 10
-	},
-	viewSendMessage: {
-		flex: 0.9,
-		margin: 10,
-		flexDirection: 'column'
-	},
-	viewSendMessageTitle: {
-		flex: 0.1
-	},
-	viewSendMessageBody: {
-		flex: 0.9
-	},
-	confirmText: {
-		color: '#95989a'
-	},
-	viewConfirmButtonIcon: {
-		flex: 1
-	},
-	buttonIconText: {
-		fontSize: 15
+		// flex: 1,
+		backgroundColor: Colors.BACKGROUND
 	},
 	textAddPhotosVideo: {
 		color: '#fff',
@@ -157,45 +127,43 @@ const styles = {
 		paddingLeft: 10
 	},
 	gridButton: {
+		flex: 1,
 		height: 35
-	},
-	linkPhone: {
-		fontSize: 18
 	},
 	multiline: {
 		flex: 1,
 		fontSize: 16,
 		padding: 4,
-		marginBottom: 10,
-		backgroundColor: '#fff',
 		borderWidth: 1,
 		borderColor: Colors.TEXT,
-		marginTop: 10,
-		borderRadius: 5
+		backgroundColor: '#fff',
+		borderRadius: 5,
+		margin: 10
 	},
 	imageLogo: {
 		width: 140,
 		height: 41
 	},
 	viewLogo: {
-		flex: 0.25,
-		flexDirection: 'row',
-		justifyContent: 'center',
-		alignItems: 'center',
-		paddingTop: 20
+		padding: 10,
+		flexDirection: 'column',
+		justifyContent: 'flex-end',
+		alignItems: 'center'
 	},
 	viewInformation: {
-		flex: 0.75,
-		paddingLeft: 20,
+		// flex: 0.75,
+		flex: 1,
 		paddingTop: 10
 	},
 	textToCustomerCare: {
 		color: '#fff',
 		fontWeight: 'bold',
-		alignSelf: 'center'
+		alignSelf: 'center',
+		fontSize: 18,
+		marginTop: 10
 	},
 	lineFlat: {
-		backgroundColor: '#2d2e2e',
+		backgroundColor: Colors.BACKGROUND_LINE,
 		height: 1,
 		width: null,
 		margin: 10

@@ -2,6 +2,7 @@ import Colors from './Colors';
 
 export default (GlobalStyles = {
 	text: {
-		color: Colors.TEXT
+		color: Colors.TEXT,
+		marginLeft: 10
 	}
 });

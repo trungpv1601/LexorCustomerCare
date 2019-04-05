@@ -146,7 +146,7 @@ export default class Home extends Component {
 				<View
 					style={{
 						flex: 0.5,
-						backgroundColor: '#383b42'
+						backgroundColor: Colors.BACKGROUND
 					}}>
 					<View
 						style={{
@@ -199,7 +199,7 @@ export default class Home extends Component {
 const styles = {
 	container: {
 		justifyContent: 'space-between',
-		backgroundColor: '#383b42'
+		backgroundColor: Colors.BACKGROUND
 	},
 	row: {
 		flex: 1,
@@ -226,14 +226,14 @@ const styles = {
 		paddingRight: 10
 	},
 	lineUp: {
-		backgroundColor: '#2d2e2e',
+		backgroundColor: Colors.BACKGROUND_LINE,
 		height: 110,
 		width: 1,
 		marginTop: 20,
 		marginBottom: 10
 	},
 	lineFlat: {
-		backgroundColor: '#2d2e2e',
+		backgroundColor: Colors.BACKGROUND_LINE,
 		height: 1.5,
 		width: null,
 		margin: 20,
