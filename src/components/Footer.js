@@ -17,7 +17,8 @@ const styles = {
 	footer: {
 		alignItems: 'center',
 		justifyContent: 'flex-end',
-		paddingBottom: 36,
+		paddingTop: 10,
+		paddingBottom: 20,
 		backgroundColor: Colors.BACKGROUND
 	},
 	footerText: {

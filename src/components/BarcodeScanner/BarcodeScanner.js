@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, StatusBar, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Image, StatusBar, Alert, TouchableOpacity, View } from 'react-native';
 import Camera from 'react-native-camera';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Actions } from 'react-native-router-flux';
@@ -15,7 +15,7 @@ export class BarcodeScanner extends Component {
 				aspect: Camera.constants.Aspect.fill,
 				type: Camera.constants.Type.back,
 				orientation: Camera.constants.Orientation.auto,
-				torchMode: Camera.constants.FlashMode.off
+				torchMode: Camera.constants.TorchMode.off
 			}
 		};
 	}
@@ -83,6 +83,8 @@ export class BarcodeScanner extends Component {
 	}
 
 	onBarCodeRead(code) {
+		Actions.pop();
+		Alert.alert('Barcode value is' + code.data, 'Barcode type is' + code.type);
 		Actions.customerInfo({ data: code.data });
 	}
 

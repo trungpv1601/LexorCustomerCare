@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StatusBar } from 'react-native';
+import { View, Text, StatusBar, ScrollView } from 'react-native';
 import { Col, Grid } from 'react-native-easy-grid';
 import { Actions } from 'react-native-router-flux';
 import GlobalStyles from '../constants/GlobalStyles';
@@ -66,7 +66,7 @@ export class LayoutMessage extends React.Component {
 				<StatusBar backgroundColor={Colors.BACKGROUND} barStyle="light-content" />
 				<RenderHeader {...this.props} />
 				<View style={styles.content}>
-					{this.props.children}
+					<ScrollView>{this.props.children}</ScrollView>
 					<RenderActions {...this.props} handlePressHome={this.handlePressHome} />
 				</View>
 				<Footer />

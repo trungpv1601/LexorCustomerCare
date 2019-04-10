@@ -57,6 +57,6 @@ const styles = {
 		fontSize: GlobalStyles.getAdjustedFontSize(20),
 		textAlign: 'center',
 		color: Colors.BACKGROUND,
-		marginBottom: 10
+		margin: 10
 	}
 };

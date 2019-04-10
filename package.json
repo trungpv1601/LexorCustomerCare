@@ -9,7 +9,7 @@
   "dependencies": {
     "react": "16.8.3",
     "react-native": "0.59.3",
-    "react-native-camera": "^2.2.1",
+    "react-native-camera": "^2.2.2",
     "react-native-easy-grid": "^0.2.1",
     "react-native-keyboard-spacer": "^0.4.1",
     "react-native-parallax-scroll-view": "^0.21.3",
