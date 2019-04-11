@@ -87,10 +87,9 @@ const styles = {
 		marginTop: 36
 	},
 	headerNoneTitle: {
-		flexDirection: 'column',
-		justifyContent: 'flex-start',
-		alignItems: 'center',
-		marginTop: 60
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center'
 	},
 	headerText: {
 		fontSize: GlobalStyles.getAdjustedFontSize(20)

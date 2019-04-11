@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Image, ImageBackground, StatusBar } from 'react-native';
 import Colors from '../constants/Colors';
+import { BackButton } from './';
 
 export class HeaderLogo extends Component {
 	render() {
@@ -16,6 +17,9 @@ export class HeaderLogo extends Component {
 					<ImageBackground
 						style={styles.imageBackgroundStyle}
 						source={sourceBackgroundHeader}>
+						{this.props.showBack && (
+							<BackButton iconColor={'#fff'} style={styles.backButton} />
+						)}
 						<Image style={styles.imageLogo} source={sourceLogoHeader} />
 					</ImageBackground>
 				</View>
@@ -39,11 +43,17 @@ const styles = {
 		height: '100%',
 		width: '100%'
 	},
+	backButton: {
+		// position: 'absolute'
+		top: 10,
+		zIndex: 1
+	},
 	imageLogo: {
 		position: 'absolute',
 		width: 170,
 		height: 50,
-		marginTop: 30,
-		marginLeft: 10
+		marginTop: 35,
+		marginLeft: 20,
+		zIndex: 0
 	}
 };

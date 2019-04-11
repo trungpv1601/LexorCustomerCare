@@ -7,7 +7,9 @@ import {
 	TouchableOpacity,
 	Linking,
 	TextInput,
-	KeyboardAvoidingView
+	KeyboardAvoidingView,
+	Dimensions,
+	ScrollView
 } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -17,6 +19,8 @@ import { Actions } from 'react-native-router-flux';
 import { ButtonIcon, Link, Button, LineFlat } from '../../components';
 import GlobalStyles from '../../constants/GlobalStyles';
 import Colors from '../../constants/Colors';
+
+const window = Dimensions.get('window');
 
 export default class CustomerMessage extends Component {
 	constructor(props) {
@@ -47,27 +51,23 @@ export default class CustomerMessage extends Component {
 	render() {
 		return (
 			<TouchableWithoutFeedback style={{ flex: 1 }} onPress={dismissKeyboard}>
-				<KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-					<KeyboardAvoidingView style={styles.viewContent} behavior="padding" enabled>
+				<View style={styles.container}>
+					<KeyboardAvoidingView style={styles.viewContent} behavior="padding">
 						<View style={styles.viewLogo}>
 							<Image
 								style={styles.imageLogo}
 								source={require('../../images/lexor_logo_black.png')}
 							/>
 						</View>
-						<View style={styles.viewInformation}>
-							<Text style={GlobalStyles.text}>
-								Business Name: Purely Polish Nails
-							</Text>
-							<Text style={GlobalStyles.text}>Address: 9658 Beach Blvd,</Text>
-							<Text style={GlobalStyles.text}>Westminster, CA 92342</Text>
-							<Text style={GlobalStyles.text}>Customer Name: Thanh Nguyen</Text>
-							<Text style={GlobalStyles.text}>Business #: 714-595-6279</Text>
-							<Text style={GlobalStyles.text}>Mobile #: 714-564-9865</Text>
-							<Text style={GlobalStyles.text}>Email: ThanhN@PPNails.com</Text>
-						</View>
+						<Text style={GlobalStyles.text}>Business Name: Purely Polish Nails</Text>
+						<Text style={GlobalStyles.text}>Address: 9658 Beach Blvd,</Text>
+						<Text style={GlobalStyles.text}>Westminster, CA 92342</Text>
+						<Text style={GlobalStyles.text}>Customer Name: Thanh Nguyen</Text>
+						<Text style={GlobalStyles.text}>Business #: 714-595-6279</Text>
+						<Text style={GlobalStyles.text}>Mobile #: 714-564-9865</Text>
+						<Text style={GlobalStyles.text}>Email: ThanhN@PPNails.com</Text>
 					</KeyboardAvoidingView>
-					<KeyboardAvoidingView style={styles.viewConfirm} behavior="padding" enabled>
+					<KeyboardAvoidingView style={styles.viewConfirm} behavior="padding">
 						<LineFlat />
 						<Text style={GlobalStyles.text}>
 							Describe a brief problem of your product.
@@ -81,8 +81,10 @@ export default class CustomerMessage extends Component {
 						<LineFlat />
 						<TextInput
 							multiline={true}
+							scrollEnabled={true}
 							style={styles.multiline}
 							numberOfLines={4}
+							maxLength={200}
 							onChangeText={(text) => {
 								this.setState({ feedback: text });
 							}}
@@ -104,7 +106,7 @@ export default class CustomerMessage extends Component {
 						</Grid>
 					</KeyboardAvoidingView>
 					<KeyboardSpacer />
-				</KeyboardAvoidingView>
+				</View>
 			</TouchableWithoutFeedback>
 		);
 	}
@@ -113,15 +115,14 @@ export default class CustomerMessage extends Component {
 const styles = {
 	container: {
 		flex: 1,
-		backgroundColor: '#fff'
+		backgroundColor: Colors.BACKGROUND
 	},
 	viewContent: {
-		flex: 0.35
-		// flex: 1
+		flex: 0.35,
+		backgroundColor: '#fff'
 	},
 	viewConfirm: {
 		flex: 0.65,
-		// flex: 1,
 		backgroundColor: Colors.BACKGROUND
 	},
 	textAddPhotosVideo: {
@@ -137,18 +138,22 @@ const styles = {
 		paddingLeft: 10
 	},
 	gridButton: {
-		flex: 1,
 		height: 35
 	},
 	multiline: {
 		flex: 1,
 		fontSize: GlobalStyles.getAdjustedFontSize(16),
-		padding: 4,
+		padding: 5,
 		borderWidth: 1,
 		borderColor: Colors.TEXT,
 		backgroundColor: '#fff',
 		borderRadius: 5,
-		margin: 10
+		marginHorizontal: 10,
+		marginVertical: 10,
+		width: window.width - 20,
+		maxHeight: 100,
+		minHeight: 100,
+		textAlignVertical: 'top'
 	},
 	imageLogo: {
 		width: 140,
@@ -159,11 +164,6 @@ const styles = {
 		flexDirection: 'column',
 		justifyContent: 'flex-end',
 		alignItems: 'center'
-	},
-	viewInformation: {
-		// flex: 0.75,
-		flex: 1,
-		paddingTop: 10
 	},
 	textToCustomerCare: {
 		color: '#fff',

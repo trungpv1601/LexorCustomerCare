@@ -5,6 +5,11 @@ import ScanSerialToRegister from './ScanSerialToRegister';
 import CustomerInfo from './CustomerInfo';
 import ContactCustomerCare from './ContactCustomerCare';
 import Register from './Register';
+import RegisterPhone from './RegisterPhone';
+import VerificationCode from './VerificationCode';
+import VerCodeThankYou from './VerCodeThankYou';
+import TypeSerialNumber from './TypeSerialNumber';
+import RequestConfirm from './RequestConfirm';
 import RegisterMoreInfo from './RegisterMoreInfo';
 import ProfileRegistered from './ProfileRegistered';
 import HomeWithProfile from './HomeWithProfile';
@@ -24,6 +29,12 @@ const RouterComponent = () => {
 					component={ScanSerialToRegister}
 					title="ScanSerialToRegister"
 				/>
+				<Scene
+					key="typeSerialNumber"
+					component={TypeSerialNumber}
+					title="Type Serial Number"
+				/>
+				<Scene key="requestConfirm" component={RequestConfirm} title="Request Confirm" />
 				<Scene key="customerInfo" component={CustomerInfo} title="CustomerInfo" />
 				<Scene
 					key="contactCustomerCare"
@@ -31,6 +42,13 @@ const RouterComponent = () => {
 					title="ContactCustomerCare"
 				/>
 				<Scene key="register" component={Register} title="Register" />
+				<Scene key="registerPhone" component={RegisterPhone} title="Register Phone" />
+				<Scene
+					key="verificationCode"
+					component={VerificationCode}
+					title="Verification Code"
+				/>
+				<Scene key="verCodeThankYou" component={VerCodeThankYou} title="Thank You" />
 				<Scene
 					key="registerMoreInfo"
 					component={RegisterMoreInfo}

@@ -166,14 +166,14 @@ export default class HomeWithProfile extends Component {
 									onPress={this.handlePressRequestService}>
 									Request Service
 								</ButtonIcon>
-								<LineUp />
+								<LineUp size={1.5} />
 							</Row>
-							<LineFlat />
+							<LineFlat size={1.5} />
 							<Row style={{ height: 100 }}>
 								<ButtonIcon icon="md-person" onPress={this.handlePressProfile}>
 									Profile
 								</ButtonIcon>
-								<LineUp />
+								<LineUp size={1.5} />
 							</Row>
 						</Grid>
 						<Grid>
@@ -184,7 +184,7 @@ export default class HomeWithProfile extends Component {
 									Purchase Part
 								</ButtonIcon>
 							</Row>
-							<LineFlat />
+							<LineFlat size={1.5} />
 							<Row style={{ height: 100 }}>
 								<ButtonIcon icon="ios-list-box" onPress={this.handlePressHistory}>
 									History
@@ -192,7 +192,7 @@ export default class HomeWithProfile extends Component {
 							</Row>
 						</Grid>
 					</View>
-					<LineFlat />
+					<LineFlat size={1.5} />
 					<View style={{ flex: 0.2 }}>
 						<Text
 							style={{

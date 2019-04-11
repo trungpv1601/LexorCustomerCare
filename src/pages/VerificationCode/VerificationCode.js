@@ -18,7 +18,7 @@ import Colors from '../../constants/Colors';
 
 const window = Dimensions.get('window');
 
-export default class Register extends Component {
+export default class VerificationCode extends Component {
 	onToggle = (toggleState) => {
 		this.props.setIsBack(toggleState);
 	};
@@ -59,11 +59,11 @@ export default class Register extends Component {
 					<LineFlat />
 					<KeyboardAvoidingView style={styles.content} behavior="padding" enabled>
 						<Text style={[GlobalStyles.text, styles.text]}>
-							Enter the salon address in the search bar.
+							Enter your Verification Code.
 						</Text>
 						<TextInput
 							style={styles.textInput}
-							placeholder={'Address'}
+							placeholder={'Verification Code'}
 							placeholderTextColor={Colors.TEXT}
 							selectionColor={Colors.TEXT}
 						/>

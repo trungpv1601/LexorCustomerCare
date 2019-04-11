@@ -160,7 +160,7 @@ export default class Home extends Component {
 						<ButtonIcon icon="ios-person-add" onPress={this.onButtonPressRegister}>
 							Register
 						</ButtonIcon>
-						<LineUp />
+						<LineUp size={1.5} />
 						<ButtonIcon
 							icon="ios-barcode"
 							onPress={this.onButtonPressScanSerialToRegister}>

@@ -18,6 +18,7 @@ export default class ContactCustomerCare extends Component {
 					style={styles.headerLogo}
 					sourceLogoHeader={require('../../images/lexor_logo_while.png')}
 					sourceBackgroundHeader={require('../../images/background_header.jpg')}
+					showBack
 				/>
 				<View style={styles.viewContent}>
 					<Text style={GlobalStyles.text}>Business Name: Purely Polish Nails</Text>

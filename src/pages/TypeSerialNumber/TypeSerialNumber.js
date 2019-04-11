@@ -18,7 +18,7 @@ import Colors from '../../constants/Colors';
 
 const window = Dimensions.get('window');
 
-export default class Register extends Component {
+export default class TypeSerialNumber extends Component {
 	onToggle = (toggleState) => {
 		this.props.setIsBack(toggleState);
 	};
@@ -46,24 +46,20 @@ export default class Register extends Component {
 					<View style={styles.header}>
 						{this.renderBack()}
 						<View style={styles.headerTitle}>
-							<Text style={[GlobalStyles.text, styles.headerText]}>Registration</Text>
-							<TouchableWithoutFeedback onPress={this.onRegisterMoreInfo}>
-								<Icon
-									name="ios-information-circle-outline"
-									size={25}
-									color={Colors.LINK}
-								/>
-							</TouchableWithoutFeedback>
+							<Text style={[GlobalStyles.text, styles.headerText]}>Sorry</Text>
 						</View>
 					</View>
 					<LineFlat />
 					<KeyboardAvoidingView style={styles.content} behavior="padding" enabled>
 						<Text style={[GlobalStyles.text, styles.text]}>
-							Enter the salon address in the search bar.
+							We apolozile for the inconvenience.
+						</Text>
+						<Text style={[GlobalStyles.text, styles.text]}>
+							Please type in your serial number below.
 						</Text>
 						<TextInput
 							style={styles.textInput}
-							placeholder={'Address'}
+							placeholder={'Serial number'}
 							placeholderTextColor={Colors.TEXT}
 							selectionColor={Colors.TEXT}
 						/>
